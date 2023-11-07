@@ -15,7 +15,7 @@ $('#loginForm').submit(function (e) {
             localStorage.setItem('jwtToken', data.token);
 
             // Redirigir a la página de lista de restaurantes
-            window.location.href = 'restaurant.html';
+            window.location.href = 'restaurants.html';
         },
         error: function (error) {
             alert('Nombre de usuario o contraseña incorrectos');

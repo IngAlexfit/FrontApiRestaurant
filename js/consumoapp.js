@@ -24,7 +24,8 @@
                         noResultsMessage.hide();
                         data.forEach(function (restaurant) {
                             var restaurantCard = '<div class="restaurant-card">';
-                            restaurantCard += '<img src="' + restaurant.imagenUrl + '">';
+                            restaurantCard += '<a href="restaurant.html?id=' + restaurant.idRestaur + '">';
+                            restaurantCard += '<img src="' + restaurant.imagenUrl + '"> </a>';
                             restaurantCard += '<div class="restaurant-details">';
                             restaurantCard += '<h5>' + restaurant.nombre + '</h5>';
                             restaurantCard += '<p>Ubicación: ' + restaurant.ubicacion + '</p>';
@@ -50,6 +51,15 @@
 
         // Llamar a la función para cargar la lista de restaurantes al cargar la página
         loadRestaurantList();
+
+        function mostrarDetallesDelRestaurante(restaurante) {
+            $('#restaurant-title').text('Detalles del Restaurante');
+            $('#restaurant-image').attr('src', restaurante.imagenUrl);
+            $('#restaurant-name').text('Nombre del Restaurante: ' + restaurante.nombre);
+            $('#restaurant-location').text('Ubicación: ' + restaurante.ubicacion);
+            $('#restaurant-cuisine').text('Tipo de Cocina: ' + restaurante.tipoCocina);
+            $('#restaurant-description').text('Descripción: ' + restaurante.descripcion);
+        }
 
         // Manejar el cambio en el select de ciudad
         $('#citySelect').change(function () {

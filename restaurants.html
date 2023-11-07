@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Restaurantes de Colombia</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .restaurant-card {
+            margin: 10px;
+            display: inline-block;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #888888;
+        }
+
+        .restaurant-card img {
+            max-width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .restaurant-details {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Restaurantes de Colombia</a>
+        <span class="navbar-text ml-auto" id="loggedInUser" style="margin-right: 20px;">
+            Usuario en Sesión: <span id="username"></span>
+        </span>
+        <a class="btn btn-danger" id="logoutButton" style="margin-right: 20px;">Cerrar Sesión</a>
+    </nav>
+    <div class="container mt-4">
+        <h1>Lista de Restaurantes</h1>
+        <div class="form-group">
+            <label for="citySelect">Filtrar por ciudad:</label>
+            <select class="form-control" id="citySelect">
+                <option value="">Selecciona una ciudad</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Medellín">Medellín</option>
+                <option value="Cali">Cali</option>
+                <option value="Cartagena">Cartagena</option>
+                <!-- Agrega más opciones de ciudades aquí -->
+            </select>
+        </div>
+        <div class="row" id="restaurantList">
+        </div>
+        <div id="noResultsMessage" class="alert alert-warning" style="display: none;">
+            No se encontraron restaurantes en la ciudad seleccionada.
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/consumoapp.js"></script>
+   
+</body>
+
+</html>
