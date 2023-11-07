@@ -1,3 +1,9 @@
+var jwtToken = localStorage.getItem('jwtToken');
+        if (jwtToken) {
+            // Redirigir al usuario a la página de inicio de sesión si no está autenticado
+            window.location.href = 'restaurants.html';
+        }
+
 $('#loginForm').submit(function (e) {
     e.preventDefault();
     var formData = {
