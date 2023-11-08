@@ -110,6 +110,7 @@ function darLike(comentarioId) {
         success: function (data) {
             
             alert('Like incrementado con éxito');
+            cargarComentarios();
         },
         error: function (error) {
             
