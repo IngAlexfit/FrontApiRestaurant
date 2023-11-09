@@ -123,3 +123,57 @@ function darLike(comentarioId) {
     });
 
 }
+
+
+function agregarComentario() {
+    // Obtener el contenido del comentario desde el campo de texto
+    const contenidoComentario = document.getElementById("newComment").value;
+
+    // Verificar si se ha ingresado contenido
+    if (contenidoComentario.trim() === "") {
+        alert("Por favor, escribe tu comentario antes de enviar.");
+        return;
+    }
+
+    // Obtener el token JWT del localStorage
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    // Verificar si se ha almacenado un token
+    if (!jwtToken) {
+        alert("No hay un token JWT almacenado.");
+        return;
+    }
+    var restauranteId = obtenerRestauranteIdDeLaURL();
+
+    var jwtPayload = jwtToken.split('.')[1];
+        var decodedJwt = atob(jwtPayload);
+        var username = JSON.parse(decodedJwt).unique_name;
+   
+    const comentarioData = {
+        contenido: contenidoComentario,
+        autor: username,
+        restaurante_id:restauranteId
+    };
+
+   
+    $.ajax({
+        url: 'https://restaurantsapi-dev-narf.2.us-1.fl0.io/api/Comentario/agregar-comentario',
+        type: 'POST',
+        data: JSON.stringify(comentarioData),
+        contentType: 'application/json',
+        headers: {
+            'Authorization': 'Bearer ' + jwtToken
+        },
+        success: function (data) {
+            
+            cargarComentarios();
+            alert('Comentario agregado con éxito');
+            $('#newComment').val('');
+
+        },
+        error: function (error) {
+           
+            alert('Error al agregar el comentario: ' + error.responseJSON.message);
+        }
+    });
+}
