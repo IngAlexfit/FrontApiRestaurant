@@ -31,6 +31,7 @@
                             restaurantCard += '<p>Ubicación: ' + restaurant.ubicacion + '</p>';
                             restaurantCard += '<p>Tipo de Cocina: ' + restaurant.tipoCocina + '</p>';
                             restaurantCard += '<p>Descripción: ' + restaurant.descripcion + '</p>';
+                            restaurantCard += '<p>Visitas: ' + restaurant.visitas + '</p>';
                             restaurantCard += '<p>Likes: ' + restaurant.likes + '</p>';
                             restaurantCard += '</div></div>';
                             restaurantList.append(restaurantCard);
