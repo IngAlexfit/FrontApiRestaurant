@@ -25,7 +25,7 @@ function cargarComentarios() {
                     if (data.length > 0) {
                         const itemsPerPage = 4;// numero de comentarios por pagina
                         
-                        const paginationWrapper = $('<div class="pagination-wrapper"></div>');
+                        paginationWrapper = $('<div class="pagination-wrapper"></div>');
             
                         commentsSection.after(paginationWrapper); 
             
