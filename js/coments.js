@@ -9,7 +9,10 @@ function cargarComentarios() {
         success: function (restaurante) {
             // Muestra los detalles del restaurante
             mostrarDetallesDelRestaurante(restaurante); 
-   
+            var paginationWrapper = $('.pagination-wrapper'); 
+            if (paginationWrapper.length > 0) {
+                paginationWrapper.remove();
+            }
             // Llamada AJAX para obtener los comentarios del restaurante
             $.ajax({
                 url: 'https://restaurantsapi-dev-narf.2.us-1.fl0.io/api/Comentario/ByRestauranteId/' + restauranteId,
@@ -21,6 +24,7 @@ function cargarComentarios() {
 
                     if (data.length > 0) {
                         const itemsPerPage = 4;// numero de comentarios por pagina
+                        
                         const paginationWrapper = $('<div class="pagination-wrapper"></div>');
             
                         commentsSection.after(paginationWrapper); 
