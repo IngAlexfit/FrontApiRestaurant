@@ -162,8 +162,11 @@ function darLike(comentarioId) {
             'Authorization': 'Bearer ' + jwtToken // Incluir el token JWT en los encabezados
         },
         success: function (data) {
-            
-            alert('Like incrementado con éxito');
+            if (data.message === "Has quitado tu like") {
+                alert('Has quitado tu like');
+            } else {
+                alert('Like incrementado con éxito');
+            }           
             cargarComentarios();
         },
         error: function (error) {
@@ -197,8 +200,12 @@ function darDisLike(comentarioId) {
             'Authorization': 'Bearer ' + jwtToken // Incluir el token JWT en los encabezados
         },
         success: function (data) {
+            if (data.message === "Has quitado tu dislike") {
+                alert('Has quitado tu Dislike');
+            } else {
+                alert('DisLike Realizado con éxito');
+            }                     
             
-            alert('DisLike Realizado con éxito');
             cargarComentarios();
         },
         error: function (error) {
